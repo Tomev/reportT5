@@ -4,9 +4,13 @@ from scipy import stats
 
 
 # Get paths to images
-folder_path = "./data/U(I)/Pokojowa/"
-file_names = ['-1.5T.txt', '-1.0T.txt', '-0.5T.txt', '0T.txt', '0.5T.txt', '1.0T.txt', '1.5T.txt']
-
+### Room temperature
+#folder_path = "./data/U(I)/Pokojowa/"
+#file_names = ['-1.5T.txt', '-1.0T.txt', '-0.5T.txt', '0T.txt', '0.5T.txt', '1.0T.txt', '1.5T.txt']
+### Nitrogen temperature
+folder_path = "./data/U(I)/Azot/"
+file_names = ['-1.5T.txt', '-1.0T.txt', '-0.75T.txt', '-0.5T.txt', '-0.25T.txt', '0T.txt', '0.5T.txt',
+              '1.0T.txt', '1.25T.txt', '1.5T.txt']
 
 for file_name in file_names:
 
@@ -37,18 +41,12 @@ for file_name in file_names:
     print('Data gathered. Plotting.')
 
     # Plot settings
-    plot_title = "U(I), T = 25 [deg C], B = " + str(B) + " [T]"
+    #plot_title = "U(I), T = 25 [deg C], B = " + str(B) + " [T]"
+    plot_title = "U(I), T = - 196 [deg C], B = " + str(B) + " [T]"
     y_label = "Napięcie prądu U [V]"
     x_label = "Natężenie prądu I [A]"
     x = I
     y = U
-
-    #plt.yticks([i for i in range(0, 400, 15)])
-    #plt.locator_params(axis='x', nbins=8)
-    #plt.locator_params(axis='y', nbins=4)
-
-    #plt.setp(plt.xaxis.get_majorticklabels(), rotation=90)
-    #plt.gca().xaxis.set_major_formatter(tkr.FuncFormatter())
 
     plt.plot(x, y, 'ro')#, x, line)
     plt.title(plot_title)
